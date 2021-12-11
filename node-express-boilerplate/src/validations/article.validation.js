@@ -10,6 +10,17 @@ const createArticle = {
   }),
 };
 
+const getArticles = {
+  query: Joi.object().keys({
+    title: Joi.string(),
+    category: Joi.string(),
+    comments: Joi.string(),
+    author: Joi.string(),
+    content: Joi.string(),
+  }),
+}
+
 module.exports = {
-  createArticle
+  createArticle,
+  getArticles
 };

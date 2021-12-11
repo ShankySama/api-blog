@@ -10,6 +10,12 @@ const createArticle = async (articleBody) => {
   return Article.create(articleBody);
 };
 
+const queryArticles = async () => {
+  const articles = await Article.find().sort({createdAt:-1});
+  return articles;
+};
+
 module.exports = {
-  createArticle
+  createArticle,
+  queryArticles
 };

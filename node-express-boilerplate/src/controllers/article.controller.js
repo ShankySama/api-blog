@@ -7,6 +7,12 @@ const createArticle = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send({ article });
 });
 
+const getArticles = catchAsync(async (req, res) => {
+  const result = await articleService.queryArticles();
+  res.send(result);
+});
+
 module.exports = {
-  createArticle
+  createArticle,
+  getArticles
 };

@@ -6,7 +6,7 @@ const articleController = require('../../controllers/article.controller');
 const router = express.Router();
 
 router.post('/postArticle', validate(articleValidation.createArticle), articleController.createArticle);
-
+router.get('/articles',validate(articleValidation.getArticles), articleController.getArticles);
 module.exports = router;
 
 /**
