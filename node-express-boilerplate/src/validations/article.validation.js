@@ -5,7 +5,8 @@ const createArticle = {
     title: Joi.string().required(),
     category: Joi.string().required(),
     comments: Joi.number().required(),
-    author: Joi.string().required()
+    author: Joi.string().required(),
+    content: Joi.string().required()
   }),
 };
 
