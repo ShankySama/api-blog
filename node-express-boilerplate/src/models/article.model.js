@@ -18,6 +18,14 @@ const articleSchema = mongoose.Schema(
     author:{
       type: String,
       required: true
+    },
+    content:{
+      type: String,
+      required: true
+    },
+    isDeleted:{
+      type: Boolean,
+      default: false
     }
   },
   {
