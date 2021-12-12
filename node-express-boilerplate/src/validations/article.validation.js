@@ -5,7 +5,7 @@ const createArticle = {
   body: Joi.object().keys({
     title: Joi.string().required(),
     category: Joi.string().required(),
-    comments: Joi.number().required(),
+    comments: Joi.number(),
     author: Joi.string().required(),
     content: Joi.string().required()
   }),
