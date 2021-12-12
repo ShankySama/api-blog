@@ -15,7 +15,7 @@ const getArticles = {
   query: Joi.object().keys({
     title: Joi.string(),
     category: Joi.string(),
-    comments: Joi.string(),
+    comments: Joi.number(),
     author: Joi.string(),
     content: Joi.string(),
   }),
@@ -27,8 +27,31 @@ const getArticle = {
   }),
 };
 
+const updateArticle = {
+  params: Joi.object().keys({
+    articleId: Joi.required().custom(objectId),
+  }),
+  body: Joi.object()
+    .keys({
+      title: Joi.string(),
+      category: Joi.string(),
+      comments: Joi.number(),
+      author: Joi.string(),
+      content: Joi.string(),
+    })
+    .min(1),
+};
+
+const deleteArticle = {
+  params: Joi.object().keys({
+    articleId: Joi.string().custom(objectId),
+  }),
+};
+
 module.exports = {
   createArticle,
   getArticles,
-  getArticle
+  getArticle,
+  updateArticle,
+  deleteArticle
 };

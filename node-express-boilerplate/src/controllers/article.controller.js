@@ -21,8 +21,20 @@ const getArticle = catchAsync(async (req, res) => {
   res.send(article);
 });
 
+const updateArticle = catchAsync(async (req, res) => {
+  const article = await articleService.updateArticleById(req.params.articleId, req.body);
+  res.send(article);
+});
+
+const deleteArticle = catchAsync(async (req, res) => {
+  await articleService.deleteArticleById(req.params.articleId);
+  res.send('Deleted');
+});
+
 module.exports = {
   createArticle,
   getArticles,
-  getArticle
+  getArticle,
+  updateArticle,
+  deleteArticle
 };
