@@ -12,8 +12,7 @@ const articleSchema = mongoose.Schema(
       required: true
     },
     comments: {
-      type: Number,
-      required: true
+      type: Number
     },
     author:{
       type: String,
