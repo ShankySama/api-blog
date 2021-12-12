@@ -13,6 +13,11 @@ const getArticles = catchAsync(async (req, res) => {
   res.send(result);
 });
 
+const getArticlesCategory = catchAsync(async (req, res) => {
+  const result = await articleService.queryArticlesCategory(req.params.articleCategory);
+  res.send(result);
+});
+
 const getArticle = catchAsync(async (req, res) => {
   const article = await articleService.getArticleById(req.params.articleId);
   if (!article) {
@@ -35,6 +40,7 @@ module.exports = {
   createArticle,
   getArticles,
   getArticle,
+  getArticlesCategory,
   updateArticle,
   deleteArticle
 };
