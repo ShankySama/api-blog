@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/createArticle', validate(articleValidation.createArticle), articleController.createArticle);
 router.get('/articles', validate(articleValidation.getArticles), articleController.getArticles);
 router.get('/:articleCategory', validate(articleValidation.getArticles), articleController.getArticlesCategory)
-router.get('/:articleId', validate(articleValidation.getArticle), articleController.getArticle);
+router.get('/arti/:articleId', validate(articleValidation.getArticle), articleController.getArticle);
 router.patch('/:articleId', validate(articleValidation.updateArticle), articleController.updateArticle);
 router.patch('/deleteArticle/:articleId', validate(articleValidation.deleteArticle), articleController.deleteArticle);
 module.exports = router;

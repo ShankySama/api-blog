@@ -24,11 +24,9 @@ const queryArticles = async () => {
  * @returns {Promise<QueryResult>}
  */
  const queryArticlesCategory = async (articleCategory) => {
-  const articles = await Article.find({category:articleCategory}).sort({createdAt:-1});
-  console.warn(articleCategory);
+  const articles = await Article.find({category:articleCategory,isDeleted:false}).sort({createdAt:-1});
   return articles;
 };
-
 
 /**
  * Get article by id
