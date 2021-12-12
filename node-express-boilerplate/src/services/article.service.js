@@ -20,6 +20,17 @@ const queryArticles = async () => {
 };
 
 /**
+ * Query for articlesCategory
+ * @returns {Promise<QueryResult>}
+ */
+ const queryArticlesCategory = async (articleCategory) => {
+  const articles = await Article.find({category:articleCategory}).sort({createdAt:-1});
+  console.warn(articleCategory);
+  return articles;
+};
+
+
+/**
  * Get article by id
  * @param {ObjectId} id
  * @returns {Promise<Article>}
@@ -61,6 +72,7 @@ const queryArticles = async () => {
 module.exports = {
   createArticle,
   queryArticles,
+  queryArticlesCategory,
   getArticleById,
   updateArticleById,
   deleteArticleById
