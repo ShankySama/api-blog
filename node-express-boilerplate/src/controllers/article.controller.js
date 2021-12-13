@@ -13,6 +13,11 @@ const getArticles = catchAsync(async (req, res) => {
   res.send(result);
 });
 
+const getArticlesSearched = catchAsync(async (req, res) => {
+  const result = await articleService.queryArticlesSearched(req.params.search);
+  res.send(result);
+});
+
 const getArticlesCategory = catchAsync(async (req, res) => {
   const result = await articleService.queryArticlesCategory(req.params.articleCategory);
   res.send(result);
@@ -41,6 +46,7 @@ module.exports = {
   getArticles,
   getArticle,
   getArticlesCategory,
+  getArticlesSearched,
   updateArticle,
   deleteArticle
 };

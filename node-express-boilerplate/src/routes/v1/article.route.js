@@ -6,6 +6,7 @@ const articleController = require('../../controllers/article.controller');
 const router = express.Router();
 
 router.post('/createArticle', validate(articleValidation.createArticle), articleController.createArticle);
+router.get('/articlesSearched/:search', validate(articleValidation.getArticles), articleController.getArticlesSearched)
 router.get('/articles', validate(articleValidation.getArticles), articleController.getArticles);
 router.get('/:articleCategory', validate(articleValidation.getArticles), articleController.getArticlesCategory)
 router.get('/arti/:articleId', validate(articleValidation.getArticle), articleController.getArticle);

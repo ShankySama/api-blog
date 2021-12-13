@@ -29,6 +29,31 @@ const queryArticles = async () => {
 };
 
 /**
+ * Query for articlesCategory
+ * @returns {Promise<QueryResult>}
+ */
+  const queryArticlesSearched = async (articleSearched) => {
+    try {
+        let result = [];
+        if( articleSearched ) {
+          console.warn(articleSearched)
+            result = await Article.find( { 
+                $and: [{
+                    $or: [
+                        { 'title': new RegExp(articleSearched, 'i') },
+                        { 'category': new RegExp(articleSearched, 'i') },
+                        { 'author': new RegExp(articleSearched, 'i') }
+                    ],
+                }]
+            } );
+        }
+        return result;
+    } catch(ex) {            
+        throw ex;
+    }
+};
+
+/**
  * Get article by id
  * @param {ObjectId} id
  * @returns {Promise<Article>}
@@ -71,6 +96,7 @@ module.exports = {
   createArticle,
   queryArticles,
   queryArticlesCategory,
+  queryArticlesSearched,
   getArticleById,
   updateArticleById,
   deleteArticleById
