@@ -37,8 +37,8 @@ const updateArticle = catchAsync(async (req, res) => {
 });
 
 const deleteArticle = catchAsync(async (req, res) => {
-  await articleService.deleteArticleById(req.params.articleId);
-  res.send('Deleted');
+  const articleDeleted = await articleService.deleteArticleById(req.params.articleId);
+  res.send(articleDeleted);
 });
 
 module.exports = {
