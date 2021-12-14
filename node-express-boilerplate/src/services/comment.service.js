@@ -10,7 +10,7 @@ const getComment = async () => {
     return Comment.find();
 };
 const getCommentById = async (id) => {
-    return Comment.findById(id);
+    return Comment.find({articleId:id});
 };
 const updateCommentById = async (commentId, updateBody) => {
     const comment = await getCommentById(commentId);
