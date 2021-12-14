@@ -6,6 +6,7 @@
         name: Joi.string().required(),
         email: Joi.string().required().email(),
         message: Joi.string().required(),
+        articleId: Joi.string().required()
     }),
     };
     const getAllComments = {
