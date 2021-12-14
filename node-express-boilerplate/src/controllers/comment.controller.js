@@ -10,8 +10,8 @@ const postCommentt = catchAsync(async (req, res) => {
 });
 
 const getComments = catchAsync(async (req, res) => {
-    const comments = await commentService.getComment(req.body);
-    res.status(httpStatus.FOUND).send(comments);
+    const comments = await commentService.getComment();
+    res.status(httpStatus.OK).send(comments);
 });
 
 const getComment = catchAsync(async (req, res) => {

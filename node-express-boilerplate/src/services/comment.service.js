@@ -6,8 +6,8 @@ const ApiError = require('../utils/ApiError');
 const createComment = async (commentBody) => {
     return Comment.create(commentBody);
 };
-const getComment = async (comment) => {
-    return Comment.find(comment);
+const getComment = async () => {
+    return Comment.find();
 };
 const getCommentById = async (id) => {
     return Comment.findById(id);
