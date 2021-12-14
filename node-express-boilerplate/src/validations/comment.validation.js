@@ -18,7 +18,7 @@
 
         const getComment = {
             params: Joi.object().keys({
-            commentId: Joi.string().custom(objectId),
+            commentId: Joi.string(),
             }),
         };
 
