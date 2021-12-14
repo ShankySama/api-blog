@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const { toJSON } = require('./plugins');
 const commentSchema = mongoose.Schema(
 {
+    articleId:{
+        type:String,
+        required:true
+    },
     name: {
             type: String,
             required: true
